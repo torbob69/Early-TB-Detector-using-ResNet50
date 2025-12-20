@@ -20,7 +20,11 @@ backend/env/
 backend/.env
 backend/.pytest_cache/
 
-# --- MODEL AI ---
-# (Uncomment baris bawah ini JIKA model >100MB supaya tidak error saat push)
- *.pth
- *.h5
+# datasets
+Dataset of Tuberculosis Chest X-rays Images/
+TB_Chest_Radiography_Database/
+
+# model weights
+*.pth
+*.keras
+

@@ -7,6 +7,7 @@ import {
   XCircle,
   Sparkles,
   X,
+  Trash2,
 } from "lucide-react";
 import WebTitle from "./components/WebTitle";
 import TitleDesc from "./components/TitleDesc";
@@ -114,7 +115,7 @@ function App() {
   };
 
   return (
-    <StarsBackground className="bg-neutral-900 relative w-screen h-screen flex justify-center items-center flex-col md:flex-row lg:flex-row">
+    <StarsBackground className="bg-[radial-gradient(circle,_rgba(0,0,0,1),_rgba(23,23,23,0))] relative w-screen h-screen flex justify-center items-center flex-col md:flex-row lg:flex-row">
       {infoActive && <Info fadeOut={fadeOut} onClose={closeInfo} />}
 
       {/* Left Section - Branding & Info */}
@@ -186,9 +187,7 @@ function App() {
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
               className={`w-2xs h-72 lg:w-md lg:h-md relative rounded-4xl transition-all duration-500 backdrop-blur-3xl [mask-image:radial-gradient(circle,black_25%,transparent_70%)] lg:[mask-image:radial-gradient(circle,black_25%,transparent_55%)] ${
-                isDragging
-                  ? "bg-neutral-400/10 scale-[0.99]"
-                  : "bg-transparent"
+                isDragging ? "bg-neutral-400/10 scale-[0.99]" : "bg-transparent"
               }`}
               id="upload-wrapper"
             >
@@ -219,9 +218,16 @@ function App() {
 
           {/* Preview with Actions */}
           {preview && (
-            <div className="space-y-4">
+            <div className="space-y-4 relative flex flex-col">
+              <div className="w-16 h-16 rounded-full bg-black/25 backdrop-blur-xl border border-white/10 flex items-center justify-center mb-6 absolute self-center top-2/7 z-9 hover:scale-[1.1] hover:bg-white/5 transition-all duration-300 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+                <Trash2
+                  onClick={handleReset}
+                  disabled={loading}
+                  className="w-8 h-8 text-neutral-400"
+                />
+              </div>
               <div
-                className="w-3xs h-56 lg:w-md lg:h-md rounded-3xl overflow-hidden bg-black/40 backdrop-blur-xl [mask-image:linear-gradient(to_bottom,transparent,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,transparent),linear-gradient(to_right,transparent,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,transparent)]
+                className="w-3xs h-56 lg:w-md lg:h-md rounded-3xl overflow-hidden backdrop-blur-xl [mask-image:linear-gradient(to_bottom,transparent,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,transparent),linear-gradient(to_right,transparent,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,transparent)]
     [mask-composite:intersect]
     [-webkit-mask-image:linear-gradient(to_bottom,transparent,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,transparent),linear-gradient(to_right,transparent,rgba(0,0,0,0.6)_30%,rgba(0,0,0,0.6)_70%,transparent)]
     [-webkit-mask-composite:source-in]"
@@ -240,7 +246,7 @@ function App() {
                     <ShinyButton
                       onClick={handleUpload}
                       disabled={loading}
-                      className="flex-1 px-6 py-3 rounded-2xl bg-white/90 hover:bg-white hover:scale-[1.01] backdrop-blur-2xl text-black font-normal transition-all duration-300 border border-white/10"
+                      className="bg-black/0 text-neutral-200 px-8 py-4 rounded-4xl text-md font-semibold cursor-pointer transition-all duration-300 ease-in-out shadow-[0px_0px_20px_#262626] hover:shadow-[0px_0px_30px_#121212] hover:bg-neutral-900 hover:scale-[1.1]"
                     >
                       {loading ? (
                         <>
@@ -252,20 +258,13 @@ function App() {
                         </>
                       )}
                     </ShinyButton>
-                    <ShinyButton
-                      onClick={handleReset}
-                      disabled={loading}
-                      className="px-6 py-3 rounded-2xl bg-transparent hover:bg-white/5 backdrop-blur-2xl text-neutral-300 font-normal transition-all duration-300 border border-white/10"
-                    >
-                      Cancel
-                    </ShinyButton>
                   </>
                 )}
 
                 {(result || error) && (
                   <ShinyButton
                     onClick={handleReset}
-                    className="w-full px-6 py-3 rounded-2xl text-black bg-white"
+                    className="bg-black/0 text-neutral-200 px-8 py-4 rounded-4xl text-md font-semibold cursor-pointer transition-all duration-300 ease-in-out shadow-[0px_0px_20px_#262626] hover:shadow-[0px_0px_30px_#121212] hover:bg-neutral-900 hover:scale-[1.1]"
                   >
                     Continue
                   </ShinyButton>

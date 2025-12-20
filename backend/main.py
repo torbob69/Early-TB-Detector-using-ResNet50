@@ -29,14 +29,14 @@ def load_model():
     model = models.resnet50(weights=None)
     # Sesuaikan head dengan training kita
     model.fc = nn.Sequential(
-        nn.Linear(model.fc.in_features, 256),
+        nn.Linear(model.fc.in_features, 512),
         nn.ReLU(),
         nn.Dropout(0.4),
-        nn.Linear(256, 2)
+        nn.Linear(512, 2)
     )
     # Load bobot
     try:
-        model.load_state_dict(torch.load("tb_resnet50_final_generalized.pth", map_location=device))
+        model.load_state_dict(torch.load("tb_resnet50_robust.pth", map_location=device))
         print("Model berhasil dimuat!")
     except Exception as e:
         print(f"Error loading model: {e}")

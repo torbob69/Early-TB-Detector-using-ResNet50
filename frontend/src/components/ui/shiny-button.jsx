@@ -29,7 +29,7 @@ export const ShinyButton = React.forwardRef(({ children, className, ...props }, 
     <motion.button
       ref={ref}
       className={cn(
-        "relative cursor-pointer rounded-2xl border-1 px-6 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,var(--primary)/10%_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_var(--primary)/10%]",
+        "relative cursor-pointer backdrop-blur-xl transition-shadow duration-300 ease-in-out hover:shadow dark:bg-[radial-gradient(circle_at_50%_0%,var(--primary)/10%_0%,transparent_60%)] dark:hover:shadow-[0_0_20px_var(--primary)/10%]",
         className
       )}
       {...animationProps}
