@@ -1,5 +1,5 @@
 # Early TB Detector using ResNet50
-
+![Failed to render gif.](./frontend/src/assets/finalgif.gif)
 A full-stack medical AI application designed to detect Tuberculosis (TB) from Chest X-ray images. This project utilizes a **ResNet50** convolutional neural network (PyTorch) for classification, served via a **FastAPI** backend, and consumed by a modern **React** frontend.
 
 ## 🔗 Project Notebook
