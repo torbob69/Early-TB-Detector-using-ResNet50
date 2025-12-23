@@ -1,16 +1,54 @@
-# React + Vite
+# Frontend - TB Detector UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application allowing users to upload Chest X-rays via drag-and-drop and receive real-time AI analysis.
 
-Currently, two official plugins are available:
+## ⚡ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Drag & Drop Interface:** Intuitive upload zone with visual feedback (hover states, masking effects).
+- **Real-time Inference:** Connects to the FastAPI backend (`/predict`) for immediate results.
+- **Smart Result Display:**
+    - Dynamic classification (Normal vs Tuberculosis).
+    - Confidence percentage.
+    - Context-aware medical advice text.
+- **Visuals:**
+    - Glassmorphism effects using Backdrop Filter.
 
-## React Compiler
+## 🛠️ Installation & Run
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+   *Note: This project relies on `lucide-react` for icons and potentially `framer-motion` for animations.*
 
-## Expanding the ESLint configuration
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## 🔌 Configuration
+
+The application is configured to look for the backend at `http://127.0.0.1:8000`.
+
+If you need to change this (e.g., for deployment), edit the `API_URL` constant in `src/App.jsx`:
+
+```javascript
+const API_URL = "[http://127.0.0.1:8000/predict](http://127.0.0.1:8000/predict)";
+```
+
+## 📂 Component Structure
+
+- **`App.jsx`**: Main logic controller. Handles file state, API calls, and rendering.
+- **`components/`**:
+    - `WebTitle`, `TitleDesc`: Branding and headers.
+    - `warning`, `info`: Alert modals and information displays.
+    - `ui/`: Reusable UI elements (buttons, inputs).
+    - `animate-ui/`: Complex background animations.
+
+## 🎨 Styling
+The project uses **Tailwind CSS** for styling. Ensure your `tailwind.config.js` is set up correctly to scan the `src` folder.
