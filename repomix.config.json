@@ -1,0 +1,8 @@
+{
+  "include": [
+    "backend/metrics_compare.py",
+    "backend/metrics.py",
+    "backend/main.py",
+    "frontend/src/App.jsx"
+  ]
+}

@@ -1,0 +1,23 @@
+# --- Web Server & API ---
+fastapi==0.110.0
+uvicorn[standard]==0.27.1
+python-multipart==0.0.9
+
+# --- Deep Learning Frameworks ---
+torch==2.2.1
+torchvision==0.17.1
+tensorflow==2.15.0  # Required for Keras model in metrics_compare.py
+
+# --- Data Science & Analysis ---
+numpy==1.26.4
+pandas==2.2.1
+scikit-learn==1.4.1.post1
+matplotlib==3.8.3
+seaborn==0.13.2
+
+# --- Image Processing ---
+Pillow==10.2.0
+opencv-python==4.9.0.80
+
+# --- Utilities ---
+requests==2.31.0
